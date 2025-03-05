@@ -1,0 +1,68 @@
+#Statistics/big data analysis
+numpy==1.22.0
+
+#Image/Mat processor
+opencv-python==4.3.0.38
+pillow==9.3.0
+
+#Plot figure
+matplotlib>= 3.5.0
+plotly==5.6.0
+
+#Tqdm
+tqdm==4.62.3
+
+#Yaml
+PyYAML==6.0
+
+#Argumet parser
+argparse==1.4.0
+
+#Scikit tools
+scikit-learn==1.0.2
+scikit-image==0.19.1
+
+#OmegaConf
+omegaconf==2.1.1
+
+#COCO
+pycocotools==2.0.6
+
+#Google auth
+google-auth==1.35.0
+google-auth-oauthlib==0.4.6
+
+#Protobuf
+protobuf==4.0.0rc2
+
+#Tensorboard
+tensorboard==2.5.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+
+#TensorboardX
+tensorboardX==2.3.0
+
+#Fvcore
+fvcore==0.1.5.post20221221
+
+#Wandb
+wandb==0.12.10
+
+#Typing
+typing==3.6.2
+
+#Colorlog
+colorlog==6.7.0
+
+#Pytorch summary
+torchsummary==1.5.1
+
+#Mlxtend
+mlxtend==0.22.0
+
+#Thop
+thop==0.1.1.post2209072238
+
+#Filt type
+filetype==1.2.0
