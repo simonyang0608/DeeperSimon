@@ -1,0 +1,61 @@
+############################## 
+#Compilation and distribution
+##### Pycache #####
+__pycache__
+*.pyc
+
+##### Extension #####
+_ext
+
+##### Share object #####
+*.so
+
+##### Build execution #####
+AdelaiDet.egg-info/
+build/
+dist/
+
+
+
+##############################
+#Pytorch/Pickle/Numpy formats
+*.pth
+*.pkl
+*.npy
+
+
+
+#######
+#Wandb
+wandb
+
+
+
+###########################
+#ipython/jupyter notebooks
+**/.ipynb_checkpoints/
+
+
+
+####################
+#Editor temporaries
+*.swn
+*.swo
+*.swp
+*~
+
+
+
+#########################
+#Pycharm editor settings
+.idea
+.vscode
+.python-version
+
+
+
+###############
+#Image formats
+*.jpg
+*.PNG
+*.bmp
