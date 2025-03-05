@@ -14,7 +14,6 @@
 </br>
 
 ## Pre-settings
-請參閱[開發環境建置文件](https://tfs.getac.com/tfs/IAIoT_Collection/IAIoT-AI%20Team/_git/IAIoT-AI%20Team?path=%2FREADME.md&version=GBmaster)完成以下需求
 - Ubuntu20.04 amd64 Desktop
 - NVIDIA GPU (GTX2080Ti / RTX3090 測試過可以)
 - NVIDIA GPU Driver (525.105.17)
@@ -35,7 +34,7 @@
 
 - 下載程式碼
     ```shell
-    git clone https://tfs.getac.com/tfs/IAIoT_Collection/IAIoT-AI%20Team/_git/AnomalyDetection_MemSeg
+    git clone https://github.com/simonyang0608/DeeperSimon.git
     ``` 
 
 </br>
@@ -73,12 +72,10 @@
 - 創立 Docker Container
     ```shell
     sudo docker create -i -t \
-        -v /mnt/HDD/DataCenter/:/mnt/HDD/DataCenter/ \
-        -v /mnt/SSD/DataCenter/:/mnt/SSD/DataCenter/ \
-        -v /home/HHD10TB1/IAIoT-DataCenter/:/home/HHD10TB1/IAIoT-DataCenter/ \
-        -v /home/SSD/IAIoT-DataCenter/:/home/SSD/IAIoT-DataCenter/ \
-        -v /opt/getac/:/opt/getac/ \
-        -w /opt/getac/AnomalyDetection_MemSeg/ \
+        -v /mnt/HDD/:/mnt/HDD/ \
+        -v /mnt/SSD/:/mnt/SSD/ \
+        -v /home/:/home/ \
+        -v /home/:/home/ \
         --shm-size 8G \
         --gpus all \
         -e TZ=Asia/Taipei \
