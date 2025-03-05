@@ -1,0 +1,152 @@
+#######
+#Input
+INPUT:
+  ##### Resolution #####
+  RESOLUTION:
+    CHANNEL: 3
+    HEIGHT: 720
+    WIDTH: 1280
+
+  ##### Resize scale #####
+  RESIZE_SCALE:
+    MIN_SIZE: 720
+    MAX_SIZE: 1280
+
+  ##### ROI pool size #####
+  ROI_POOL_SIZE: 7
+
+  ##### Batch size #####
+  BATCH_SIZE: 10
+
+  ##### Camera scale #####
+  CAMERA_SCALE: 1.0
+
+  ##### Filtered-scale (i.e. Train/Validation, Evaluation) #####
+  FILTERED_SCALE:
+    TRAIN_VAL:
+      REFERENCE: [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]
+      POST_PROCESS: [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]
+    
+    EVALUATE:
+      REFERENCE: [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]
+      POST_PROCESS: [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]
+
+
+#########
+#Dataset
+DATASET:
+  ##### Train/Validation #####
+  TRAIN_VAL:
+    NG: '/mnt/HDD/DataCenter/LIOHO/Models/tmp/DEMO_3_IMG_0154_time_F2_155.json'
+    PASS: ''
+
+  ##### Evaluation #####
+  EVALUATE: '/mnt/HDD/DataCenter/DQA/Datasets/Data/POC/DEMO_3/Video3/IMG_0154.MOV'
+
+  ##### Split ratio #####
+  SPLIT_RATIO: 0.5
+
+  ##### Transform augmentation #####
+  TRANSFORM:
+    COLOR:
+      HUE: [0.1, 0.2, 0.3, 0.4, 0.5]
+      CONTRAST: [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1]
+      SATURATION: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0]
+      BRIGHTNESS: [0.7, 0.8, 0.9, 1.0, 1.1, 1.2]
+    FLIP:
+      HORIZONTAL: True
+      VERTICAL: True
+
+  ##### Format #####
+  FORMAT: 'coco'
+
+
+#######
+#MODEL
+MODEL:
+  ##### Backbone #####
+  BACKBONE: 'vovnetv2_27'
+
+  ##### Meta network #####
+  META_NETWORK: 'faster_rcnn'
+
+  ##### Task #####
+  TASK: 'detection'
+
+
+###################################
+#Learning rate (i.e. LR) scheduler
+LR_SCHEDULER:
+  ##### Step #####
+  STEP: [1000,]
+
+  ##### Ratio #####
+  RATIO: 0.1
+
+  ##### Function #####
+  FUNCTION: 'warmupmultistep_lr'
+
+
+###########
+#Optimizer
+OPTIMIZER:
+  ##### Momentum #####
+  MOMENTUM: 0.9
+
+  ##### Weight decay #####
+  WEIGHT_DECAY: 0.0001
+
+  ##### Function #####
+  FUNCTION: 'adam'
+
+
+######
+#Loss
+LOSS:
+  ##### Alpha #####
+  ALPHA: 0.25
+
+  ##### Beta #####
+  BETA: 0.5
+
+  ##### Gamma #####
+  GAMMA: 2
+
+  ##### Function #####
+  FUNCTION: 'ce'
+
+
+########
+#Device
+DEVICE:
+  ##### Seed distribution #####
+  SEED: 0
+
+  ##### GPU ID #####
+  GPU: 0
+
+  ##### Number of workers #####
+  NUM_WORKERS: 7
+
+
+########
+#Export
+EXPORT:
+  ##### ONNX #####
+  ONNX:
+    INPUT_NAMES: ['input_image']
+    OUTPUT_NAMES: ['output_bbox', 'output_class', 'output_score']
+    OPSET_VERSION: 11
+
+  ##### Format #####
+  FORMAT: 'onnx'
+
+
+#################
+#Evaluate period
+EVALUATE_PERIOD: 100
+
+
+##################
+#Output directory
+OUTPUT: '/mnt/HDD/DataCenter/LIOHO/Models/tmp'
