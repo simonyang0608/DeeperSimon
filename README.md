@@ -4,8 +4,6 @@ DeeperSimon is an AI defect detection engine based on MemSeg open source. See [h
 <!-- TOC -->
 
 - [DeeperSimon](#deepersimon)
-  - [Release Notes](#release-notes)
-  - [Installation](#installation)
   - [Main process flow (Pipeline)](#main-process-flow-pipeline)
     - [Config settings (Config 參數檔設定)](#config-settings-config-參數檔設定)
     - [Dataset preprocess (資料集前處理)](#dataset-preprocess-資料集前處理)
